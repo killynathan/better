@@ -1,0 +1,30 @@
+{
+  "name": "es6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js --exec babel-node",
+    "build": "babel src -d lib",
+    "serve": "node lib/index.js",
+    "webpack": "webpack --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "nodemon": "^1.12.1",
+    "webpack": "^3.6.0"
+  },
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2"
+  }
+}
