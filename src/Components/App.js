@@ -1,11 +1,9 @@
 import React from 'react';
-import Sidebar from '../Components/Sidebar';
-import ActiveEntry from '../Containers/ActiveEntry';
+import Dashboard from '../scenes/Dashboard';
 
 const App = () => (
 	<div>
-		<Sidebar />
-		<ActiveEntry />
+		<Dashboard />
 	</div>
 );
 

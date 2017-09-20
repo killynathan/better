@@ -44,11 +44,11 @@ const activeEntryId = (state = -1, action) => {
 	}
 }
 
-const myApp = combineReducers({
+const dashboard = combineReducers({
 	goals,
 	entries,
 	activeEntryId
 });
 
 
-export default myApp;
+export default dashboard;

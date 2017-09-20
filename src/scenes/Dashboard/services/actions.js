@@ -6,7 +6,6 @@ export const ADD_GOAL = 'ADD_GOAL';
 export const ADD_ENTRY = 'ADD_ENTRY';
 export const TOGGLE_ACTIVE_ENTRY = 'TOGGLE_ACTIVE_ENTRY';
 
-
 /*
  * action creators
  */

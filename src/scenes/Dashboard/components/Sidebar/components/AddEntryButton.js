@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addEntry } from '../Redux/actions';
+import { addEntry } from '../../../services/actions';
 
 let AddEntryButton = ({	dispatch }) => (
-		<button 
+		<button
 			style = { styles.button }
 			onClick = { e => dispatch(addEntry((new Date()).toDateString(), ['send apps', 'gym', 'finsih project']))} 
 		>+</button>
