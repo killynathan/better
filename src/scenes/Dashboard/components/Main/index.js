@@ -1,5 +1,7 @@
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Entry from './components/Entry';
+import Entry from './Entry';
+import { greyishBlue } from 'constants/colors';
 
 const getActiveEntryFromId = (entries, id) => {
 	if (id === -1) return -1; // none active. show welcome page!
@@ -8,12 +10,35 @@ const getActiveEntryFromId = (entries, id) => {
 
 const mapStateToProps = state => {
 	return {
-		content: getActiveEntryFromId(state.dashboard.entries, state.dashboard.activeEntryId)
+		content: getActiveEntryFromId(state.dashboard.entries, state.dashboard.activeContent)
 	}
 }
 
-const Main = connect(
+let Main = ({ content }) => {
+	if (content === -1) {
+		return (
+			<div>
+				<h1> Welcome! </h1>
+			</div>
+		);
+	}
+	return (
+		<div style={styles.main}>
+			<Entry content={content}/>
+		</div>
+	);
+
+}
+
+const styles = {
+	main: {
+		backgroundColor: greyishBlue,
+		flex: 1
+	}
+}
+
+Main = connect(
 	mapStateToProps
-)(Entry);
+)(Main);
 
 export default Main;

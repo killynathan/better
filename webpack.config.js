@@ -18,6 +18,12 @@ module.exports = {
          }
      ]
  },
+ resolve: {
+   modules: ["web_modules", "node_modules", path.resolve(__dirname, 'src')],
+   alias: {
+     colors: 'constants/colors'
+   }
+ },
  stats: {
      colors: true
  },

@@ -6,7 +6,10 @@ const EntryCard = ({ date, todos, onClick }) => (
 		onClick={onClick}
 	>
 		<div>
-			<p style={styles.title}>{ date }</p>
+			<i className='mdi mdi-check' style={styles.icon}/>
+			<p style={styles.title}>
+				  { date }
+			</p>
 		</div>
 	</li>
 );
@@ -14,15 +17,26 @@ const EntryCard = ({ date, todos, onClick }) => (
 const styles = {
 	entryCard: {
 		width: '100%',
-		height: 60,
+		height: 40,
 		display: 'flex',
 		alignItems: 'center',
-		color: '#9da5b4',
-		cursor: 'pointer'
+		cursor: 'pointer',
+		paddingLeft: 10
 	},
 	title: {
-		marginLeft: 10,
-		fontSize: 15
+		marginLeft: 3,
+		color: '#d7dae0', //'#9da5b4',
+		fontSize: 15,
+		fontWeight: 500,
+		display: 'inline-block'
+	},
+	inlineBlock: {
+		display: 'inline-block'
+	},
+	icon: {
+		fontSize: 20,
+		color: 'rgba(157, 165, 180, 0.6)',
+		display: 'inline-block'
 	}
 }
 

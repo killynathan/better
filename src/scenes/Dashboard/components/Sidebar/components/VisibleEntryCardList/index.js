@@ -1,9 +1,8 @@
 import { connect } from 'react-redux';
 import EntryCardList from './components/EntryCardList';
-import { toggleActiveEntry } from '../../../../services/actions';
+import { toggleActiveContent } from '../../../../services/activeContent';
 
 const mapStateToProps = state => {
-	console.log(state);
 	return {
 		entries: state.dashboard.entries
 	};
@@ -12,7 +11,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		handleClick: id => {
-			dispatch(toggleActiveEntry(id));
+			dispatch(toggleActiveContent(id));
 		}
 	}
 }
