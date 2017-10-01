@@ -2,7 +2,7 @@ import React from 'react';
 import { greyishBlue, offWhite, grey, darkestGreyishBlue, blue } from 'constants/colors';
 
 const Header = ({title, date, onTitleChange}) => (
-  <div>
+  <div style={styles.header}>
     <div style={styles.titleWrapper}>
       <input
         style={styles.titleInput}
@@ -22,6 +22,9 @@ const Header = ({title, date, onTitleChange}) => (
 );
 
 const styles = {
+  header: {
+    marginBottom: 20
+  },
   titleWrapper: {
     width: '100%',
     paddingBottom: 10,

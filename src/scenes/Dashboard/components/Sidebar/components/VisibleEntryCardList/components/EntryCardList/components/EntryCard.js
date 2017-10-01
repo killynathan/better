@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EntryCard = ({ date, todos, onClick }) => (
+const EntryCard = ({ title, todos, onClick }) => (
 	<li
 		style={styles.entryCard}
 		onClick={onClick}
@@ -8,7 +8,7 @@ const EntryCard = ({ date, todos, onClick }) => (
 		<div>
 			<i className='mdi mdi-check' style={styles.icon}/>
 			<p style={styles.title}>
-				  { date }
+				  { title }
 			</p>
 		</div>
 	</li>

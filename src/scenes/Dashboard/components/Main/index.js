@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Entry from './Entry';
 import { greyishBlue } from 'constants/colors';
+import { Scrollbars } from 'react-custom-scrollbars';
 
 const getActiveEntryFromId = (entries, id) => {
 	if (id === -1) return -1; // none active. show welcome page!
@@ -24,7 +25,9 @@ let Main = ({ content }) => {
 	}
 	return (
 		<div style={styles.main}>
+			<Scrollbars>
 			<Entry content={content}/>
+			</Scrollbars>
 		</div>
 	);
 
@@ -33,7 +36,8 @@ let Main = ({ content }) => {
 const styles = {
 	main: {
 		backgroundColor: greyishBlue,
-		flex: 1
+		flex: 1,
+		height: '100vh'
 	}
 }
 

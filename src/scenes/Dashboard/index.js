@@ -5,9 +5,10 @@ import GoalsTaskbar from './components/GoalsTaskbar';
 
 const Dashboard = () => (
 	<div style={styles.dashboard}>
-		<GoalsTaskbar />
+
 		<Sidebar />
 		<Main />
+		<GoalsTaskbar />
 	</div>
 );
 

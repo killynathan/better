@@ -6,10 +6,10 @@ const Todos = ({todos, onCheckboxClick, onDeleteClick, onAddTodoClick}) => {
 
   return (
     <div style={styles.todos}>
-      <p
+      {/*}<p
         style={styles.title}>
         Todos
-      </p>
+      </p>*/}
 
       <form
         onSubmit={e => {
@@ -25,12 +25,12 @@ const Todos = ({todos, onCheckboxClick, onDeleteClick, onAddTodoClick}) => {
           style={styles.input}
           placeholder='new todo'
         />
-        <button
+        {/*<button
           type='submit'
           style={styles.addButton}
         >
           <i className='mdi mdi-plus'/>
-        </button>
+        </button>*/}
       </form>
 
       <ul
@@ -55,7 +55,7 @@ const Todos = ({todos, onCheckboxClick, onDeleteClick, onAddTodoClick}) => {
 
 const styles = {
   todos: {
-    marginTop: 30
+    paddingBottom: 30
   },
   title: {
     fontSize: 20,
@@ -63,14 +63,18 @@ const styles = {
     marginBottom: 10
   },
   input: {
+    boxSizing: 'border-box',
+    width: '100%',
     backgroundColor: darkGreyishBlue,
     border: '1px solid ' + darkestGreyishBlue,
+    borderRadius: 5,
     outline: 'none',
-    padding: 5,
+    padding: 8,
     fontSize: 17,
     fontFamily: 'inherit',
     color: 'inherit',
-    marginRight: 10
+    marginRight: 10,
+    marginBottom: 20
   },
   addButton: {
     backgroundColor: 'transparent',
@@ -81,14 +85,15 @@ const styles = {
   },
   list: {
 		listStyleType: 'none',
-		marginTop: 10,
 		fontSize: 17
 	},
 	todoWrapper: {
-		display: 'inline-block'
+		//display: 'inline-block'
 	},
 	todo: {
-		marginTop: 3
+		paddingBottom: 10,
+    paddingTop: 10,
+    borderBottom: '1px solid ' + darkestGreyishBlue
 	},
 	todoCheckbox: {
 		display: 'inline-block',
@@ -101,7 +106,8 @@ const styles = {
 	},
   todoX: {
     color: '#c16266',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    float: 'right'
   }
 };
 
