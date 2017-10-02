@@ -6,7 +6,10 @@ import { Scrollbars } from 'react-custom-scrollbars';
 
 const getActiveEntryFromId = (entries, id) => {
 	if (id === -1) return -1; // none active. show welcome page!
-	return entries[id];
+	for (let entry of entries) {
+		if (entry.id === id) return entry;
+	}
+	return entries[0];
 }
 
 const mapStateToProps = state => {

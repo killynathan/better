@@ -3,6 +3,7 @@
  */
 
 const ADD_ENTRY = 'ADD_ENTRY';
+const DELETE_ENTRY = 'DELETE_ENTRY';
 import { CHANGE_TITLE } from './title';
 import { TOGGLE_TODO, ADD_TODO, DELETE_TODO } from './todos';
 import { CHANGE_NOTES } from './notes';
@@ -24,10 +25,13 @@ const entries = (state = [], action) => {
  					todos: action.todos,
  					notes: action.notes,
  					date: action.date,
-          id: state.length
+          id: action.id
  				},
  				...state
  			];
+    case DELETE_ENTRY:
+      console.log(state.filter(entry => entry.id !== action.id));
+      return state.filter(entry => entry.id !== action.id);
     case ADD_TODO:
     case TOGGLE_TODO:
     case DELETE_TODO:
@@ -52,14 +56,22 @@ const entries = (state = [], action) => {
  * action creators
  */
 
-export const addEntry = (date = '', todos = [], notes = 'placeholder') => {
+export const addEntry = (date = '', todos = [], notes = 'placeholder', id = Math.floor(Math.random() * 100000)) => {
 	return {
 		type: ADD_ENTRY,
 		todos,
 		date,
-		notes
+		notes,
+    id
 	};
 };
+
+export const deleteEntry = (id) => {
+  return {
+    type: DELETE_ENTRY,
+    id
+  };
+}
 
 export const toggleTodo = (entryId, todoIndex) => {
   return {

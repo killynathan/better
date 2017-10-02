@@ -5,7 +5,7 @@ import Header from './Header';
 import Todos from './Todos';
 import Notes from './Notes';
 import Tabs from './Tabs';
-import { toggleTodo, changeTitle, changeNotes, deleteTodo, addTodo } from '../../../services/entries';
+import { toggleTodo, changeTitle, changeNotes, deleteTodo, addTodo, deleteEntry } from '../../../services/entries';
 
 const mapDispatchToProps = dispatch => ({
 	onCheckboxClick: (entryId, todoIndex) => {
@@ -22,6 +22,9 @@ const mapDispatchToProps = dispatch => ({
 	},
 	onAddTodoClick: (entryId, text) => {
 		dispatch(addTodo(entryId, text));
+	},
+	onDeleteEntryClick: (entryId) => {
+		dispatch(deleteEntry(entryId));
 	}
 });
 
@@ -41,14 +44,16 @@ class Entry extends Component {
 	}
 
 	render() {
-		var { content, onCheckboxClick, onTitleChange, onNotesChange, onDeleteClick, onAddTodoClick } = this.props;
+		var { content, onCheckboxClick, onTitleChange, onNotesChange, onDeleteClick, onAddTodoClick, onDeleteEntryClick } = this.props;
 		return (
 			<div style={styles.main}>
 
 				<Header
 					title={content.title}
 					date={content.date}
-					onTitleChange={e => onTitleChange(content.id, e.target.value)} />
+					onTitleChange={e => onTitleChange(content.id, e.target.value)}
+					onDeleteEntryClick={() => onDeleteEntryClick(content.id)}
+				/>
 
 				<Tabs
 					handleClick = {(mode) => this.toggleMode(mode)}

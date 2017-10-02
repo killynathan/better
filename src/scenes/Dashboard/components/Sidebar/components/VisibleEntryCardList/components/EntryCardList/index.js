@@ -5,7 +5,7 @@ const EntryCardList = ({ entries, handleClick }) => (
 	<div>
 		<ul>
 			{entries.map((entry, i) => (
-				<EntryCard key={i} {...entry} onClick={() => handleClick(i)}/>
+				<EntryCard key={i} {...entry} onClick={() => handleClick(entry.id)}/>
 			))}
 		</ul>
 	</div>

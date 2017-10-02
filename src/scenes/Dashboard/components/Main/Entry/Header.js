@@ -1,7 +1,7 @@
 import React from 'react';
 import { greyishBlue, offWhite, grey, darkestGreyishBlue, blue } from 'constants/colors';
 
-const Header = ({title, date, onTitleChange}) => (
+const Header = ({title, date, onTitleChange, onDeleteEntryClick}) => (
   <div style={styles.header}>
     <div style={styles.titleWrapper}>
       <input
@@ -15,7 +15,7 @@ const Header = ({title, date, onTitleChange}) => (
       <ul style={styles.controls}>
         <li style={styles.control}><i className='mdi mdi-star' /></li>
         <li style={styles.control}><i className='mdi mdi-tag' /></li>
-        <li style={styles.control}><i className='mdi mdi-delete' /></li>
+        <li style={styles.control}><i className='mdi mdi-delete' onClick={onDeleteEntryClick}/></li>
       </ul>
     </div>
   </div>
@@ -57,7 +57,8 @@ const styles = {
   control: {
     display: 'inline-block',
     fontSize: 18,
-    marginRight: 10
+    marginRight: 10,
+    cursor: 'pointer'
   }
 };
 
