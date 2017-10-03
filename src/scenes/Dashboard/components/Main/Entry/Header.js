@@ -57,7 +57,7 @@ const styles = {
   control: {
     display: 'inline-block',
     fontSize: 18,
-    marginRight: 10,
+    marginLeft: 10,
     cursor: 'pointer'
   }
 };

@@ -1,35 +1,33 @@
 import React from 'react';
 import Collapsible from 'react-collapsible';
 
-const Goal = () => {
+const Goal = ({ goal }) => {
   let triggerElement = (
     <div style={styles.goal}>
       <i
         className = 'mdi mdi-chevron-down'
         style={styles.goalIcon}
       />
-      <p style={styles.goalText}>become a software enginner</p>
+      <p style={styles.goalText}>{goal.text}</p>
     </div>
   );
   return (
     <Collapsible
       trigger={triggerElement}
-      transitionTime={200}
+      transitionTime={100}
       style={styles.goal}
     >
-      <div style={styles.milestone}>
-        <i
-          className = 'mdi mdi-flag'
-          style={styles.milestoneIcon}
-        />
-        <p style={styles.milestoneText}>Send out 25 applications</p>
-      </div>
-      <div style={styles.milestone}>
-        <p>Send out 50 applications</p>
-      </div>
-      <div style={styles.milestone}>
-        <p>Send out 100 applications</p>
-      </div>
+      {
+        goal.milestones.map((milestone, i) =>
+          <div style={styles.milestone} key={i}>
+            <i
+              className = 'mdi mdi-flag'
+              style={styles.milestoneIcon}
+            />
+            <p style={styles.milestoneText}>{milestone.text}</p>
+          </div>
+        )
+      }
     </Collapsible>
   );
 };
@@ -41,7 +39,8 @@ const styles = {
     paddingTop: 10,
     paddingBottom: 10,
     paddingLeft: 10,
-    cursor: 'pointer'
+    cursor: 'pointer',
+    fontSize: 15
   },
   goalIcon: {
     display: 'inline-block',
@@ -55,10 +54,12 @@ const styles = {
     width: '100%',
     paddingTop: 10,
     paddingBottom: 10,
-    paddingLeft: 40
+    paddingLeft: 40,
+    fontSize: 15
   },
   milestoneIcon: {
-    display: 'inline-block'
+    display: 'inline-block',
+    marginRight: 5
   },
   milestoneText: {
     display: 'inline-block'

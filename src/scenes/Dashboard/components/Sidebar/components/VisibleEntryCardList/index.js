@@ -4,7 +4,8 @@ import { toggleActiveContent } from '../../../../services/activeContent';
 
 const mapStateToProps = state => {
 	return {
-		entries: state.dashboard.entries
+		entries: state.dashboard.entries,
+		activeEntryId: state.dashboard.activeContent 
 	};
 };
 

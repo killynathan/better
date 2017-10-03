@@ -8,19 +8,25 @@ import { createStore } from 'redux';
 import myApp from './services/reducers';
 
 import {
-	addEntry,
-	addTodo,
-	toggleTodo,
-	changeTitle,
-	changeNotes,
-	deleteTodo
-} from './scenes/Dashboard/services/entries';
+	addGoal,
+	addMilestone
+} from './scenes/Dashboard/services/goals';
 
 let store;
 let initialState = (JSON.parse(window.localStorage.getItem('liveBetter')));
 console.log(initialState);
 if (initialState) store = createStore(myApp, initialState);
 else store = createStore(myApp);
+
+// store.dispatch(addGoal(0, 'become a software engineer'));
+// store.dispatch(addMilestone(0, 0, 'send 25 applications'));
+// store.dispatch(addMilestone(0, 1, 'send 50 applications'));
+// store.dispatch(addMilestone(0, 2, 'send 75 applications'));
+// store.dispatch(addMilestone(0, 3, 'send 100 applications'));
+// store.dispatch(addGoal(1, 'stop biting nails'));
+// store.dispatch(addMilestone(1, 0, 'clean 1 day'));
+// store.dispatch(addMilestone(1, 1, 'clean 2 day'));
+// store.dispatch(addMilestone(1, 2, 'clean 3 day'));
 
 ReactDOM.render(
 	<Provider store={store}>

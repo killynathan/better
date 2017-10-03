@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 import entries from './entries';
 import activeContent from './activeContent';
-import goals from './goals';
+import goals from './goals/index.js';
 
 const dashboard = combineReducers({
 	goals,

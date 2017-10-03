@@ -1,11 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Goal from './Goal';
 import { grey } from 'constants/colors';
 
-const GoalsList = () => (
+const mapStateToProps = state => ({
+  goals: state.dashboard.goals
+});
+
+let GoalsList = ({ goals }) => (
   <div style={styles.goalList}>
-    <Goal />
-    <Goal />
+    {
+      goals.map((goal, i) =>
+        <Goal goal={goal} key={i}/>
+      )
+    }
   </div>
 );
 
@@ -14,5 +22,9 @@ const styles = {
     color: grey
   }
 };
+
+GoalsList = connect(
+  mapStateToProps
+)(GoalsList);
 
 export default GoalsList;

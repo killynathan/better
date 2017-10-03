@@ -52,7 +52,10 @@ class Entry extends Component {
 					title={content.title}
 					date={content.date}
 					onTitleChange={e => onTitleChange(content.id, e.target.value)}
-					onDeleteEntryClick={() => onDeleteEntryClick(content.id)}
+					onDeleteEntryClick={() => {
+						let didConfirm = confirm('are you sure you want to delete this entry?');
+						if (didConfirm) onDeleteEntryClick(content.id);
+					}}
 				/>
 
 				<Tabs

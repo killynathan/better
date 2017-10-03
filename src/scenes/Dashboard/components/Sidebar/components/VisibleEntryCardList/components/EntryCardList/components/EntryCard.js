@@ -1,8 +1,10 @@
 import React from 'react';
 
-const EntryCard = ({ title, todos, onClick }) => (
+import { darkestGreyishBlue } from 'constants/colors';
+
+const EntryCard = ({ title, todos, onClick, isActive }) => (
 	<li
-		style={styles.entryCard}
+		style={isActive ? styles.active : styles.entryCard}
 		onClick={onClick}
 	>
 		<div>
@@ -22,6 +24,15 @@ const styles = {
 		alignItems: 'center',
 		cursor: 'pointer',
 		paddingLeft: 10
+	},
+	active: {
+		width: '100%',
+		height: 40,
+		display: 'flex',
+		alignItems: 'center',
+		cursor: 'pointer',
+		paddingLeft: 10,
+		backgroundColor: darkestGreyishBlue
 	},
 	title: {
 		marginLeft: 3,
