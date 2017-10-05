@@ -2,4 +2,6 @@
 
 /src
 
-!node_modules/mdi
+!materialdesignicons.min.css
+
+!*/
