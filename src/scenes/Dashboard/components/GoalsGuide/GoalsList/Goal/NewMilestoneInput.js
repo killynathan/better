@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import SelfContainedInput from 'components/SelfContainedInput';
 import { addMilestone } from '../../../../services/goals';
 
+// TESTING
+
 const mapDispatchToProps = dispatch => ({
   onEnter: (id, text) => {
     dispatch(addMilestone(id, text));
