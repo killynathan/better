@@ -1,37 +1,18 @@
 import React from 'react';
 import { greyishBlue, offWhite, grey, darkestGreyishBlue, darkGreyishBlue, blue } from 'constants/colors';
+import SelfContainedInput from 'components/SelfContainedInput';
 
 const Todos = ({todos, onCheckboxClick, onDeleteClick, onAddTodoClick}) => {
   let input;
 
   return (
     <div style={styles.todos}>
-      {/*}<p
-        style={styles.title}>
-        Todos
-      </p>*/}
 
-      <form
-        onSubmit={e => {
-          e.preventDefault();
-          onAddTodoClick(input.value);
-          input.value = '';
-        }}
-      >
-        <input
-          ref={element => {
-            input = element
-          }}
-          style={styles.input}
-          placeholder='new todo'
-        />
-        {/*<button
-          type='submit'
-          style={styles.addButton}
-        >
-          <i className='mdi mdi-plus'/>
-        </button>*/}
-      </form>
+      <SelfContainedInput
+        onEnter = {onAddTodoClick}
+        style = {styles.input}
+        placeholder = 'new todo'
+      />
 
       <ul
         style={styles.list}>
@@ -63,22 +44,14 @@ const styles = {
     marginBottom: 10
   },
   input: {
-    boxSizing: 'border-box',
-    width: '100%',
     backgroundColor: darkGreyishBlue,
     border: '1px solid ' + darkestGreyishBlue,
     borderRadius: 5,
-    outline: 'none',
-    padding: 8,
     fontSize: 17,
-    fontFamily: 'inherit',
-    color: 'inherit',
-    marginRight: 10,
     marginBottom: 20
   },
   addButton: {
     backgroundColor: 'transparent',
-    border: 'none',
     color: blue,
     fontSize: 20,
     cursor: 'pointer'

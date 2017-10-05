@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addEntry } from '../../../../../services/entries';
 
 let ControlButton = ({	onClick, iconName }) => (
 		<div
@@ -14,7 +13,7 @@ let ControlButton = ({	onClick, iconName }) => (
 const styles = {
 	button: {
 		height: '100%',
-		flex: 1,
+		width: 50,
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center',

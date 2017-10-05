@@ -1,10 +1,12 @@
 import React from 'react';
-import Controls from './components/Controls';
-import VisibleEntryCardList from './components/VisibleEntryCardList';
+import Controls from './Controls';
+import VisibleEntryCardList from './VisibleEntryCardList';
+import AddEntryButton from './AddEntryButton';
 
-const Sidebar = () => (
+let EntriesGuide = () => (
 	<div style={styles.sidebar}>
 		<Controls />
+		<AddEntryButton />
 		<VisibleEntryCardList />
 	</div>
 );
@@ -16,6 +18,6 @@ const styles = {
 		borderRight: 'solid 1px rgb(24, 26, 31)',
 		backgroundColor: '#21252b'
 	}
-}
+};
 
-export default Sidebar;
+export default EntriesGuide;

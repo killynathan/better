@@ -26,6 +26,7 @@ const goals = (state = [], action) => {
     case ADD_MILESTONE:
     case DELETE_MILESTONE:
     case TOGGLE_MILESTONE:
+      console.log(action);
       return state.map(goal => {
         if (goal.id === action.goalId) {
           return Object.assign({}, goal, {
@@ -43,13 +44,13 @@ const goals = (state = [], action) => {
  * action creators
  */
 
-export const addGoal = (id = Math.floor(Math.random() * 100000), text) => ({
+export const addGoal = (text, id = Math.floor(Math.random() * 100000)) => ({
  		type: ADD_GOAL,
  		text,
     id
  });
 
-export const addMilestone = (goalId, milestoneId, text) => ({
+export const addMilestone = (goalId, text, milestoneId = Math.floor(Math.random() * 100000)) => ({
   type: ADD_MILESTONE,
   goalId,
   text,

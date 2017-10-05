@@ -87,7 +87,6 @@ class Entry extends Component {
 const styles = {
 	main: {
 		color: grey,
-		paddingTop: 50,
 		width: '90%',
 		margin: '0 auto'
 	}

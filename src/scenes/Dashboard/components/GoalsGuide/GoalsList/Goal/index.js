@@ -1,5 +1,6 @@
 import React from 'react';
 import Collapsible from 'react-collapsible';
+import NewMilestoneInput from './NewMilestoneInput';
 
 const Goal = ({ goal }) => {
   let triggerElement = (
@@ -17,6 +18,9 @@ const Goal = ({ goal }) => {
       transitionTime={100}
       style={styles.goal}
     >
+      <NewMilestoneInput
+        goalId = {goal.id}
+      />
       {
         goal.milestones.map((milestone, i) =>
           <div style={styles.milestone} key={i}>

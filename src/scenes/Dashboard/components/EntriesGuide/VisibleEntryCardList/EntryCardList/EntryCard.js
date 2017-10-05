@@ -3,17 +3,15 @@ import React from 'react';
 import { darkestGreyishBlue } from 'constants/colors';
 
 const EntryCard = ({ title, todos, onClick, isActive }) => (
-	<li
+	<div
 		style={isActive ? styles.active : styles.entryCard}
 		onClick={onClick}
 	>
-		<div>
-			<i className='mdi mdi-check' style={styles.icon}/>
-			<p style={styles.title}>
-				  { title }
-			</p>
-		</div>
-	</li>
+		<i className='mdi mdi-check' style={styles.icon}/>
+		<p style={styles.title}>
+			  { title }
+		</p>
+	</div>
 );
 
 const styles = {

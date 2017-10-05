@@ -1,14 +1,14 @@
 import React from 'react';
-import Sidebar from './components/Sidebar';
+import EntriesGuide from './components/EntriesGuide';
 import Main from './components/Main';
-import GoalsTaskbar from './components/GoalsTaskbar';
+import GoalsGuide from './components/GoalsGuide';
 
 const Dashboard = () => (
 	<div style={styles.dashboard}>
 
-		<Sidebar />
+		<EntriesGuide />
 		<Main />
-		<GoalsTaskbar />
+		<GoalsGuide />
 	</div>
 );
 
