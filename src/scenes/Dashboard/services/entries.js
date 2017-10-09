@@ -5,7 +5,7 @@
 const ADD_ENTRY = 'ADD_ENTRY';
 const DELETE_ENTRY = 'DELETE_ENTRY';
 import { CHANGE_TITLE } from './title';
-import { TOGGLE_TODO, ADD_TODO, DELETE_TODO } from './todos';
+import { TOGGLE_TODO, ADD_TODO, DELETE_TODO, MOVE_TODO } from './todos';
 import { CHANGE_NOTES } from './notes';
 
 /*
@@ -35,6 +35,7 @@ const entries = (state = [], action) => {
     case ADD_TODO:
     case TOGGLE_TODO:
     case DELETE_TODO:
+    case MOVE_TODO:
     case CHANGE_TITLE:
     case CHANGE_NOTES:
       return state.map((entry) => {
@@ -86,6 +87,15 @@ export const addTodo = (entryId, text) => {
     type: ADD_TODO,
     entryId,
     text
+  };
+};
+
+export const moveTodo = (entryId, from, to) => {
+  return {
+    type: MOVE_TODO,
+    entryId,
+    from,
+    to
   };
 };
 
