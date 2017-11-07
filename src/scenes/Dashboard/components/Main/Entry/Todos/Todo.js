@@ -20,7 +20,9 @@ const styles = {
 	todo: {
 		paddingBottom: 10,
     paddingTop: 10,
-    borderBottom: '1px solid ' + darkestGreyishBlue
+    borderBottom: '1px solid ' + darkestGreyishBlue,
+    cursor: 'grab',
+    cursor: '-webkit-grab'
 	},
 	todoCheckbox: {
 		display: 'inline-block',

@@ -6,7 +6,18 @@ import Todo from './Todo';
 const Todos = ({ onAddTodoClick, onCheckboxClick, onDeleteClick, onMoveTodo, todos }) => {
 
   let dragged = -1;
-  let over = -1
+  let over = -1;
+  let placement = 'before';
+
+  // let placeholder = (
+  //   <li style={styles.placeholder}>
+  //
+  //   </li>
+  // );
+  let placeholder = document.createElement('li');
+  placeholder.style.height = '30px';
+  placeholder.style.width = '100%';
+  placeholder.style.backgroundColor = darkestGreyishBlue;
 
   const handleDragStart = (e) => {
     dragged = e.target;
@@ -14,12 +25,28 @@ const Todos = ({ onAddTodoClick, onCheckboxClick, onDeleteClick, onMoveTodo, tod
   }
 
   const handleDragOver = (e) => {
+    e.preventDefault();
     over = e.target;
+    let parent = over.parentNode;
+    let mouseYPos = e.clientY;
+    let threshold = over.offsetTop + over.offsetHeight / 2;
+    if (mouseYPos > threshold) {
+      placement = 'after';
+      parent.insertBefore(placeholder, over.nextElementSibling);
+    }
+    else {
+      placement = 'before';
+      parent.insertBefore(placeholder, over);
+    }
   }
 
   const handleDragEnd = (e) => {
+    over.parentNode.removeChild(placeholder);
     let from = Number(dragged.dataset.id);
     let to = Number(over.dataset.id);
+    if (placement === 'after') {
+      to++;
+    }
     onMoveTodo(from, to);
   }
 
@@ -27,7 +54,6 @@ const Todos = ({ onAddTodoClick, onCheckboxClick, onDeleteClick, onMoveTodo, tod
   return (
 
     <div style={styles.todos}>
-
       <SelfContainedInput
         onEnter = {onAddTodoClick}
         style = {styles.input}
@@ -83,7 +109,12 @@ const styles = {
   list: {
 		listStyleType: 'none',
 		fontSize: 17
-	}
+	},
+  placeholder: {
+    width: '100%',
+    height: 30,
+    backgroundColor: darkestGreyishBlue
+  }
 };
 
 export default Todos;
