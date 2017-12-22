@@ -19,7 +19,6 @@ let Controls = ({ dispatch, state }) => (
       iconName = 'mdi mdi-filter'
       onClick = { () => dispatch(addEntry((new Date()).toDateString(), ['send apps', 'gym', 'finsih project']))}
     />*/}
-    <p>Save</p>
     <ControlButton
       iconName = 'mdi mdi-content-save'
       onClick = { () => window.localStorage.setItem('liveBetter', JSON.stringify(state))}

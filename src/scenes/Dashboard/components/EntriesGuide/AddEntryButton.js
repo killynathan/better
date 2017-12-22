@@ -12,4 +12,4 @@ let AddEntryButton = ({ dispatch }) => (
 );
 AddEntryButton = connect()(AddEntryButton);
 
-export default AddEntryButton;
+export default AddEntryButton; 

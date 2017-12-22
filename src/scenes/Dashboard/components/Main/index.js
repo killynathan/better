@@ -6,7 +6,7 @@ import { greyishBlue } from 'constants/colors';
 import { Scrollbars } from 'react-custom-scrollbars';
 
 const getActiveContent = (entries, id) => {
-	if (id === -1) return -1; // none active. show welcome page!
+	//if (id === -1) return -1; // none active. show welcome page!
 	for (let entry of entries) {
 		if (entry.id === id) return entry;
 	}

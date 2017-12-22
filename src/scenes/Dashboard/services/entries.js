@@ -16,7 +16,18 @@ import todos from './todos';
 import title from './title';
 import notes from './notes';
 
-const entries = (state = [], action) => {
+let dateString = new Date().toDateString();
+const defaultState = [
+  {
+    title: dateString,
+    todos: [],
+    notes: 'placeholder',
+    date: dateString,
+    id: -1
+  }
+]
+
+const entries = (state = defaultState, action) => {
   switch(action.type) {
  		case ADD_ENTRY:
  			return [

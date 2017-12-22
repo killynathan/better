@@ -12,7 +12,7 @@ const mapDispatchToProps = dispatch => ({
 let NewMilestoneInput = ({ goalId, onEnter }) => {
   return (
     <SelfContainedInput
-      placeholder='New Milestone'
+      placeholder='+ New Milestone'
       style={styles.input}
       onEnter={(text) => onEnter(goalId, text)}
     />
